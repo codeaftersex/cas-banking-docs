@@ -49,7 +49,8 @@ branch network page marks which counters are on the wire.
 
 It is hidden when the bank cannot offer one:
 
-* Not running VORP, or `vorp_inventory` is not started.
+* No inventory is running — `vorp_inventory` on VORP, `rsg-inventory` on RSG.
+* Running standalone, which has no inventory to keep a box in.
 * The branch has `safebox = nil` — Rhodes ships that way.
 
 This is the only desk removed from the index; see

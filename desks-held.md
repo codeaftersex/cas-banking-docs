@@ -6,11 +6,12 @@ description: Section IV — the safe deposit box, company accounts and the branc
 
 ## Deposit Box
 
-A strongbox in the branch's vault: a real `vorp_inventory` custom inventory, one per
+A strongbox in the branch's vault: a real container in whichever inventory you run —
+a `vorp_inventory` custom inventory on VORP, an `rsg-inventory` stash on RSG — one per
 character per branch.
 
 ```lua
-safebox = { slots = 10, maxSlots = 100, slotCost = 10, weapons = true },
+safebox = { slots = 10, maxSlots = 100, slotCost = 10, weapons = true, weight = 500000 },
 ```
 
 | Key | What it does |
@@ -18,7 +19,16 @@ safebox = { slots = 10, maxSlots = 100, slotCost = 10, weapons = true },
 | `slots` | Slots the box starts with |
 | `maxSlots` | Ceiling the depositor may rent up to |
 | `slotCost` | Dollars per extra slot, paid over the counter |
-| `weapons` | Whether the box will take weapons |
+| `weapons` | Whether the box will take weapons — **VORP only** |
+| `weight` | Carrying capacity of the box — **RSG only** |
+
+{% hint style="info" %}
+The two inventories count differently, which is why the last two keys are each
+one-sided. `vorp_inventory` counts **slots** and nothing else, so `weight` is ignored
+there. `rsg-inventory` enforces **weight as well as slots**, so a box on RSG fills on
+whichever runs out first — and it takes whatever the inventory itself allows, with no
+per-stash weapons switch, so `weapons` is ignored there.
+{% endhint %}
 
 Rented space is **yours at that branch for good** — it is bought once, not leased.
 The charge is taken from the vault and written into the ledger.
@@ -28,9 +38,9 @@ that way, matching the stock VORP setup. The page then names the branches that d
 have them, so a depositor knows where to ride.
 
 {% hint style="warning" %}
-This desk is **VORP + `vorp_inventory` only**. There is no equivalent to register on
-RSG or standalone, so rather than faking it the desk is hidden and the page explains
-that the bank keeps no boxes.
+This desk needs an inventory: `vorp_inventory` on VORP, `rsg-inventory` on RSG. On
+standalone, or with neither running, the desk is hidden rather than faked and the page
+explains that the bank keeps no boxes.
 {% endhint %}
 
 ---

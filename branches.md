@@ -32,7 +32,7 @@ Four branches ship configured, with coordinates, clerks and hours taken from
   fee = 0.0,
   reserve = 42800.0,
   telegraph = true,
-  safebox = { slots = 10, maxSlots = 100, slotCost = 10, weapons = true },
+  safebox = { slots = 10, maxSlots = 100, slotCost = 10, weapons = true, weight = 500000 },
   timecycle = 'val_bank_int',
 },
 ```
@@ -51,7 +51,7 @@ Four branches ship configured, with coordinates, clerks and hours taken from
     <tr><td><code>fee</code></td><td>% surcharge for anyone whose home branch this is not</td></tr>
     <tr><td><code>reserve</code></td><td>Cash the counter starts with. Withdrawals draw it down</td></tr>
     <tr><td><code>telegraph</code></td><td><code>false</code> = no wire, so no wires or drafts are drawn here</td></tr>
-    <tr><td><code>safebox</code></td><td>Box terms, or <code>nil</code> for a branch that keeps none</td></tr>
+    <tr><td><code>safebox</code></td><td>Box terms, or <code>nil</code> for a branch that keeps none. <code>weapons</code> applies on VORP, <code>weight</code> on RSG</td></tr>
     <tr><td><code>timecycle</code></td><td>Interior grade pushed during the cinematic</td></tr>
   </tbody>
 </table>

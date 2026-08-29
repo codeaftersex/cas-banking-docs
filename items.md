@@ -70,11 +70,19 @@ on your server, or the loan office will over-lend against a trinket.
 
 ## The safe deposit box
 
-Not an item but a container: a `vorp_inventory` custom inventory registered per
-character per branch, with an id of the form `vts_safebox_<branch>_<account>`.
+Not an item but a container, keyed per character per branch with an id of the form
+`vts_safebox_<branch>_<account>`:
 
-Slots are bought with `slotCost` and are permanent. `weapons = true` lets the box take
-weapons. See [Held for you → Deposit Box](desks-held.md#deposit-box).
+| Framework | What it is |
+| --------- | ---------- |
+| VORP | A `vorp_inventory` custom inventory, registered before it is first opened |
+| RSG | An `rsg-inventory` stash, created on first open |
+
+Slots are bought with `slotCost` and are permanent. On VORP the inventory is resized
+the moment space is rented; on RSG the new size is applied by the next open, because
+`rsg-inventory` reads a stash's slots and weight from the call that opens it.
+
+See [Held for you → Deposit Box](desks-held.md#deposit-box).
 
 {% hint style="warning" %}
 The box is registered against the branch **key**. Renaming a branch's `key` orphans

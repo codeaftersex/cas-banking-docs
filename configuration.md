@@ -161,9 +161,9 @@ Config.Statement = {
 There is no master switch per desk, and only one desk is ever removed from the
 index.
 
-**Deposit Box** is hidden outright when the bank cannot offer one — not on VORP,
-`vorp_inventory` not running, or the branch has `safebox = nil`. It is the only
-entry the index filters out.
+**Deposit Box** is hidden outright when the bank cannot offer one — no inventory
+running (`vorp_inventory` on VORP, `rsg-inventory` on RSG), standalone, or the branch
+has `safebox = nil`. It is the only entry the index filters out.
 
 Everything else stays in the index and is refused at the counter, with the counter
 saying why:

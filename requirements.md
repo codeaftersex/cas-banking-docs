@@ -29,7 +29,7 @@ startup — what is missing is simply not offered to the player.
       <td>Runs standalone and keeps pocket cash itself</td>
     </tr>
     <tr>
-      <td><code>vorp_inventory</code></td>
+      <td><code>vorp_inventory</code> / <code>rsg-inventory</code></td>
       <td>Safe deposit boxes, loan collateral, the printed statement item</td>
       <td>Those three are hidden or fall back</td>
     </tr>
@@ -45,13 +45,12 @@ startup — what is missing is simply not offered to the player.
 | Gold | ✅ | ✅ | — |
 | Printed statement as an item | ✅ | ✅ | — (on screen only) |
 | Loan collateral really seized | ✅ | ✅ | — (cash claim instead) |
-| Safe deposit box | ✅ | — | — |
+| Safe deposit box | ✅ | ✅ | — |
 
-{% hint style="warning" %}
-The **safe deposit box** is the one desk that is VORP-only. It is a real
-`vorp_inventory` custom inventory, and there is no equivalent to register on RSG or
-standalone, so the desk is hidden rather than faked. Everything else works on all
-three.
+{% hint style="info" %}
+The **safe deposit box** is a real container in whichever inventory you run — a
+`vorp_inventory` custom inventory on VORP, an `rsg-inventory` stash on RSG. Standalone
+has no inventory to keep one in, so the desk is hidden rather than faked.
 {% endhint %}
 
 ### On standalone
